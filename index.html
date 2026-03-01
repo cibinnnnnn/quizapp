@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Revision Platform</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header / Progress Bar Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Smart Revision Platform</h1>
+                <div class="stats">
+                    <span class="score-display">Score: <span id="current-score">0</span></span>
+                </div>
+            </div>
+            <div class="progress-container" aria-label="Course Progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Quiz Card -->
+            <div id="quiz-container" class="card fade-in">
+                <div class="question-header">
+                    <span class="question-number" id="question-number">Loading...</span>
+                </div>
+
+                <h2 class="question-text" id="question-text">Getting questions ready...</h2>
+
+                <!-- MCQ Options Container -->
+                <div class="options-container" id="options-container">
+                    <!-- Options injected via JavaScript -->
+                </div>
+
+                <!-- Fill in the blank Container -->
+                <div class="fill-in-blank-container" id="fill-in-blank-container" style="display: none;">
+                    <input type="text" id="blank-input" class="blank-input" placeholder="Type your answer here..."
+                        autocomplete="off">
+                </div>
+
+                <!-- Main Navigation -->
+                <div class="navigation-controls">
+                    <button id="btn-prev" class="btn btn-secondary" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button id="btn-skip" class="btn btn-secondary">
+                        Skip <i class="fas fa-forward"></i>
+                    </button>
+                    <button id="btn-next" class="btn btn-primary" disabled>
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Overall Test Actions -->
+                <div class="action-controls">
+                    <button id="btn-reset" class="btn btn-danger">
+                        <i class="fas fa-undo"></i> Reset All
+                    </button>
+                    <button id="btn-submit" class="btn btn-success">
+                        <i class="fas fa-check-circle"></i> Submit Exam
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Card -->
+            <div id="result-container" class="card fade-in" style="display: none;">
+                <div class="result-header">
+                    <h2>Exam Submitted!</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Review your answers manually below.</p>
+                </div>
+
+                <div class="result-stats" style="grid-template-columns: 1fr 1fr; margin-bottom: 2rem;">
+                    <div class="stat-card">
+                        <i class="fas fa-list-ol"></i>
+                        <span class="stat-label">Total Questions</span>
+                        <span class="stat-value" id="res-total">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span class="stat-label">Attempted</span>
+                        <span class="stat-value" id="res-attempted">0</span>
+                    </div>
+                </div>
+
+                <!-- Answers List Container -->
+                <div class="answers-review-list" id="answers-review-list">
+                    <!-- Javascript will inject the user's answers here -->
+                </div>
+
+                <div class="result-actions" style="margin-top: 2rem;">
+                    <button id="btn-restart" class="btn btn-primary btn-lg">
+                        <i class="fas fa-redo"></i> Retake Exam
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Application Logic -->
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
